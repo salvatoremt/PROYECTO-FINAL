@@ -34,7 +34,7 @@ const getfightersByID = async (req = request, res = response) => {
       const [user] = await conn.query(modelonetflix.queryGetfightersById,[id], (error) => {throw new Error(error)})
   
       if (!user) {
-          res.status(404).json({msg: `no se encontro registro con el ID ${id}`})
+          res.status(404).json({msg: `no se encontro el ususario ${id}`})
           return
       }
       res.json({user})
@@ -76,7 +76,6 @@ const addfighter = async (req = request, res = response) => {
       generos,
       clasicaciones,
       actualizaciones,
-      Episodios,
       paquetes,
       
    } = req.body
@@ -87,7 +86,6 @@ const addfighter = async (req = request, res = response) => {
    !generos||
    ! clasicaciones||
    !actualizaciones||
-   !Episodios||
    !paqutes||
    !Activo
    ){
@@ -158,7 +156,7 @@ const updatefighterZByfighter = async (req = request, res = response) => { const
       !Activo
    )
    {
-      res.status(400).json({msg: "Falta informacion del guerrero z"})
+      res.status(400).json({msg: "Falta informacion de la peliculas "})
       return
    }
    let conn;
@@ -166,7 +164,7 @@ const updatefighterZByfighter = async (req = request, res = response) => { const
    try {
       conn = await pool.getConnection()
 
-      const user = await conn.query(modelodblegends.queryGetfighters, [Luchador])
+      const user = await conn.query(modelodblegends.queryGetfighters, [peliculas ])
 
       if(user){
          res.status(403).json({msg: `El usuario ${peliculas} no se encuentra registrado`})
@@ -188,7 +186,7 @@ const updatefighterZByfighter = async (req = request, res = response) => { const
       
 
       if (affectedRows === 0) {
-         res.status(404).json({msg: `no se pudo agregar el registro del usuario ${Luchador}`})
+         res.status(404).json({msg: `no se pudo agregar el registro del usuario ${peliculas}`})
          return
    }
       res.json({msg: `el usuario ${peliculas} se actualizo correctamente :D`})

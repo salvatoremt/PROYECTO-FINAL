@@ -60,7 +60,7 @@ const getUserByID = async (req = request, res = response) => {
           res.status(404).json({msg: `No se pudo eliminar el usuario con el registro con el ID ${id}`})
           return
       }
-      res.json({msg: `El usario con ID ${id} se elimino correctamente`})
+      res.json({msg: `El usario  ${id} se elimino correctamente`})
    } catch (error) {
       console.log(error)
       res.status(500).json({error})
@@ -247,17 +247,11 @@ const getUserByID = async (req = request, res = response) => {
   }
 
 
-  const newPassword = async (req=request,res=response)=>{
-   const {
-       Usuario,
-       AContrasena,
-       NContrasena
-   }=req.body
-
+  
    if(
        !Usuario||
        !AContrasena||
-       !NContrasena
+
    ){
        res.status(400).json({msg:"Faltan datos."})
        return
@@ -267,18 +261,18 @@ const getUserByID = async (req = request, res = response) => {
 
    try{
        conn = await pool.getConnection()
-       const [user]=await conn.query(`SELECT Usuario, Contrasena, Activo FROM usuarios WHERE Usuario = '${Usuario}'`)
+       const [user]=await conn.query(`SELECT Usuario, , Activo FROM usuarios WHERE Usuario = '${Usuario}'`)
 
        if(!user || user.Activo == 'N'){
            let code = !user ? 1: 2;
-           res.status(403).json({msg:`El usuario o la contraseña son incorrectos`,errorCode:code})
+           res.status(403).json({msg:`El usuario son incorrectos`,errorCode:code})
            return
        }
 
        const datosValidos = bcryptjs.compareSync(AContrasena,user.Contrasena)
 
        if(!datosValidos){
-           res.status(403).json({msg:`El usuario o la contraseña son incorrectos`,errorCode:"3"})
+           res.status(403).json({msg:`El usuario son incorrectos`,errorCode:"3"})
            return
        }
 
@@ -287,7 +281,7 @@ const getUserByID = async (req = request, res = response) => {
 
        const {affectedRows} = await conn.query(`
            UPDATE usuarios SET
-               Contrasena='${contrasenaCifrada}'
+               
            WHERE Usuario= '${Usuario}'
            `,(error)=>{throw new error})
        if(affectedRows===0){

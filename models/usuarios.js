@@ -28,11 +28,11 @@ const modeloUsuarios = {
     WHERE usuarios = '?'`,
 
    queryupdatebyusuario:`UPDATE usuarios SET (
-       Nombre,= '?',
-       Apellidos,='?',
-       Edad,=? ,
+       usuarios,= '?',
+       peliculas,='?',
+       series,=? ,
        Genero,='?',
-       Fecha_nacimiento='?',
+       clasificacion='?',
        WHERE Usuario = '?'`,
 
    querysignIn: `SELECT Usuario, Contrasena, Activo FROM Usuario WHERE Usuario = '?'`,    

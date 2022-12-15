@@ -1,7 +1,7 @@
 const express = require('express')
 const messagesRouter = require('./routes/messages')
 const usuariosRouter = require('./routes/usuarios')
-const netflixRouter= require('./routes/dblegends')
+const netflixRouter= require('./routes/netflix')
 const cors = require("cors")
 
 class Server{
@@ -16,6 +16,7 @@ class Server{
         this.middlewares()
         this.routes()
     
+        
     }
 
     routes(){

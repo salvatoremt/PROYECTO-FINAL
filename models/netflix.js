@@ -1,8 +1,8 @@
-const modeloDBlegends = {
+const modelonetflix = {
     queryGetfighters: "SELECT * FROM DBnetflix",
     queryGetfightersById: `SELECT * FROM netflix WHERE ID = ?`,
-    queryDeletedfighter: `UPDATE DBlegends SET Activo = 'N' WHERE ID = ?`,
-    queryfighterexist: `SELECT Luchador FROM netflix WHERE usuarios = '?'`,
+    queryDeletedfighter: `UPDATE netflix SET Activo = 'N' WHERE ID = ?`,
+    queryfighterexist: `SELECT peliculas FROM netflix WHERE usuarios = '?'`,
     queryaddfighter: `INSERT INTO netflix (
         Usuario,
       peliculas,
@@ -12,7 +12,7 @@ const modeloDBlegends = {
     clasificaciones,
       paquetes,
         Activo
-    ) VALUES (
+    ) VALUES ( 
        ?,
        ?,
        ?,
@@ -23,8 +23,6 @@ const modeloDBlegends = {
        ?,
        ?,
        ?,
-       ?,
-       ?
       
     )`,
 
@@ -40,14 +38,13 @@ const modeloDBlegends = {
     FROM DBnetflix
     WHERE netflix = ?`,
 
-   queryupdatebyfighter:`UPDATE DBlegends SET (   
+   queryupdatebyfighter:`UPDATE netflix SET (   
      usuario, 
      peliculas= ?,
      series?,
      genero=? ,
      clasificaciones=?,
      paquetes=?,
-     Episodios=?,
      Activo=?
      WHERE DBnetflix=?`,
 

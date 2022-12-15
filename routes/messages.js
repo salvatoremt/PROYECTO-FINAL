@@ -1,7 +1,7 @@
 const {Router} = require("express")
 const router = Router()
 const {rootMessage, hiMessage, byeMessage, postMessage, putMessage, deleteMessage} = require('../controllers/messages')
-router.get("/", rootMessage)//end point
+router.get("/", rootMessage)//end point 1
 router.get("/hi/:name", hiMessage) //end point
 router.get("/bye", byeMessage) //end point
 router.post('/', postMessage)//end point
