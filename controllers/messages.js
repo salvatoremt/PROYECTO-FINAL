@@ -2,15 +2,14 @@ const { request, response } = require("express")
 
 const rootMessage = (req = request, res = response) => {
     const {texto1,texto2} = req.query
-//if (!texto1 || !texto2){
-  //res.status(400).json({msg: "No se han enviado los parametros necesarios, este endpoint ocupa los parametros "texto1" y "texto2"})
-    //res.status(200).json({msg:texto1+ ' ' + texto2})}
+//if {
+  //}
 //}
 if (!texto1){
-    res.status(400).json({msg: "falta el parametro 'texto1'"})}
+    res.status(400).json({msg: "falta 'texto1'"})}
 
     if (!texto2){
-        res.status(400).json({msg: "falta el parametro 'texto2'"})   
+        res.status(400).json({msg: " 'texto2'"})   
 }
     res.status(200).json({msg:texto1+ ' ' + texto2})}
 
