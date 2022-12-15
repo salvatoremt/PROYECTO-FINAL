@@ -157,7 +157,7 @@ const getUserByID = async (req = request, res = response) => {
    !peliculas||
    !series||
    !genero||
-   )
+   );
    
    {
 
@@ -180,7 +180,7 @@ const getUserByID = async (req = request, res = response) => {
             peliculas  || user.peliculas,
             series || user.series,
             Genero || user.Genero,
-            ,
+            
             Usuario
       ]
         
@@ -252,7 +252,8 @@ const getUserByID = async (req = request, res = response) => {
        !Usuario||
        !AContrasena||
 
-   ){
+       )   
+   {
        res.status(400).json({msg:"Faltan datos."})
        return
    }
@@ -297,4 +298,8 @@ const getUserByID = async (req = request, res = response) => {
            conn.end()
        }
    }
-}
+
+
+module.exports = {getUsers, getUserByID, deleteUserByID, addUser, updateUserByUsuario, signIn, newPassword}
+
+
