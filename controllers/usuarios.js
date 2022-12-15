@@ -157,7 +157,7 @@ const getUserByID = async (req = request, res = response) => {
    !peliculas||
    !series||
    !genero||
-   );
+   {})
    
    {
 
@@ -245,14 +245,7 @@ const getUserByID = async (req = request, res = response) => {
       }
    }
   }
-
-
-  
-   if(
-       !Usuario||
-       !AContrasena||
-
-       )   
+   
    {
        res.status(400).json({msg:"Faltan datos."})
        return
